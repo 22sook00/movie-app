@@ -13,7 +13,7 @@
 - redux-toolkit ( npm i redux react-redux @reduxjs/toolkit)
 - node-sass (npm i node-sass --save)
 - react-router-dom (npm i react-router-dom)
-- axios (npm i axios)
+- axios (npm i axios) : http://www.omdbapi.com/ api 사이트 참고
 
 ### Components 구성
 - App.js
