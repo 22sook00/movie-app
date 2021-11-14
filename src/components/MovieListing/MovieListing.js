@@ -1,5 +1,5 @@
 import React from "react";
-import './MovieListing.scss';
+import "./MovieListing.scss";
 import { useSelector } from "react-redux";
 import { getAllMovies } from "../../features/movies/movieSlice";
 import MovieCard from "../MovieCard/MovieCard";
@@ -10,12 +10,9 @@ function MovieListing() {
   // 성공적으로 보여주기 아니면 에러표시
   let renderMovies = "";
   renderMovies =
-    movies.Response === "True" ? 
-    (
-      movies.Search.map((movie,idx)=>{
-        return (
-          <MovieCard key ={idx} data = {movie}/>
-        )
+    movies.Response === "True" ? (
+      movies.Search.map((movie, idx) => {
+        return <MovieCard key={idx} data={movie} />;
       })
     ) : (
       <div className="movies-error">
