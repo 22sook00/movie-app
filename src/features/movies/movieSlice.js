@@ -40,10 +40,15 @@ const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovies: (state, { payload }) => {
-      state.movies = payload;
-      //{...state,payload} 와 같은역할.
-    },
+    // addMovies 는 이미 fetchAsyncMovies 함수 만들어서 더이상 필요가 없음.
+    // addMovies: (state, { payload }) => {
+    //   state.movies = payload;
+    //   //{...state,payload} 와 같은역할.
+    // },
+    // for clean-up func 
+    removeSelectedMovieOrShow : (state) => {
+      state.selectMovieOrShow = {};
+    }
   },
   extraReducers : {
     [fetchAsyncMovies.pending] : () => {
@@ -67,7 +72,7 @@ const movieSlice = createSlice({
   }
 });
 
-export const { addMovies } = movieSlice.actions;
+export const { removeSelectedMovieOrShow } = movieSlice.actions;
 export const getAllMovies = (state) => state.movies.movies;
 export const getAllShows = (state) => state.movies.shows;
 export const getSelectedMovieOrShow = (state) => state.movies.selectMovieOrShow;
