@@ -9,7 +9,8 @@ import {
 //1. fetch, redux 스토어에 저장해야한다. :useEffect
 function Home() {
   const dispatch = useDispatch();
-  // const movieText = "Harry";
+  const movieText = "Harry";
+  const showText = 'Friends'
   useEffect(() => {
     // const fetchMovies = async () => {
     // movieSlice 의 createAsyncThunk로 대체.
@@ -21,8 +22,8 @@ function Home() {
     // dispatch(addMovies(response.data));
     // };
     // fetchMovies();
-    dispatch(fetchAsyncMovies());
-    dispatch(fetchAsyncShows());
+    dispatch(fetchAsyncMovies(movieText));
+    dispatch(fetchAsyncShows(showText));
   }, [dispatch]);
 
   return (

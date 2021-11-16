@@ -4,19 +4,17 @@ import { APIKey } from "../../common/apis/MovieApiKey";
 
 export const fetchAsyncMovies = createAsyncThunk(
   "movies/fetchAsyncMovies",
-  async () => {
-    const movieText = "Harry";
+  async (term) => {
     const response = await movieApi
-      .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`);
+      .get(`?apiKey=${APIKey}&s=${term}&type=movie`);
       return response.data;
   }
 );
 export const fetchAsyncShows = createAsyncThunk(
   "movies/fetchAsyncShows",
-  async () => {
-    const seriesText = "Friends";
+  async (term) => {
     const response = await movieApi
-      .get(`?apiKey=${APIKey}&s=${seriesText}&type=series`);
+      .get(`?apiKey=${APIKey}&s=${term}&type=series`);
       return response.data;
   }
 );
@@ -55,18 +53,18 @@ const movieSlice = createSlice({
       console.log('Pending')
     },
     [fetchAsyncMovies.fulfilled] : (state,{payload}) => {
-      console.log('fetched successfully');
+      // console.log('fetched successfully');
       return {...state,movies:payload}
     },
     [fetchAsyncMovies.rejected] : () => {
       console.log('fetched rejected');
     },
     [fetchAsyncShows.fulfilled] : (state,{payload}) => {
-      console.log('fetched successfully');
+      // console.log('fetched successfully');
       return {...state,shows:payload}
     },
     [fetchAsyncMovieOrShowDetail.fulfilled] : (state,{payload}) => {
-      console.log('fetched successfully');
+      // console.log('fetched successfully');
       return {...state,selectMovieOrShow:payload}
     },
   }
